@@ -1,0 +1,14 @@
+using System.IO;
+
+namespace SingleResponsibility.Tests
+{
+    public class FileReaderClass:IFileReaderClass
+    {
+        public virtual string ReadATextFile()
+        {
+            string text = File.ReadAllText(@"C:\newFile.txt");
+            return text;
+
+        }
+    }
+}
