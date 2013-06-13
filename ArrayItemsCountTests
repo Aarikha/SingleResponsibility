@@ -1,0 +1,25 @@
+using Moq;
+using NUnit.Framework;
+using SingleResponsibility.Controllers;
+
+namespace SingleResponsibility.Tests
+{
+
+    [TestFixture]
+    public class ArrayItemsCountTests
+    {
+        [Test]
+        public void ShouldCounttheNoOfWordsFromTheTextFile()
+        {
+            string[] text = { "my", "new", "contentsome", "other", "stuff" };
+            var fileReadermock = new Mock<IFileReaderClass>();
+            var splitAndStoremock = new Mock<ISplitANdStoreClass>();
+            splitAndStoremock.Setup(m => m.ReadEachWordFromString(fileReadermock.Object)).Returns(text);
+
+            var countwords = new Countwords();
+            var count = countwords.countTheWords(splitAndStoremock.Object,fileReadermock.Object);
+            Assert.That(text.Length, Is.EqualTo(count));
+             splitAndStoremock.Verify(m => m.ReadEachWordFromString(fileReadermock.Object), Times.AtLeastOnce());
+        }
+    }
+}
