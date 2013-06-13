@@ -1,0 +1,4 @@
+SingleResponsibility
+====================
+
+SingleResponsibility
