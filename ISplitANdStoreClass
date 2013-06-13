@@ -1,0 +1,9 @@
+using SingleResponsibility.Tests;
+
+namespace SingleResponsibility.Controllers
+{
+    public interface ISplitANdStoreClass
+    {
+        string[] ReadEachWordFromString(IFileReaderClass fileReaderClass );
+    }
+}
