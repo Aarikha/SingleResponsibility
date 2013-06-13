@@ -1,0 +1,14 @@
+using SingleResponsibility.Tests;
+
+namespace SingleResponsibility.Controllers
+{
+    public class SplitAndStoreClass :ISplitANdStoreClass
+    {
+        public virtual string[] ReadEachWordFromString(IFileReaderClass fileReaderClass)
+        {
+            var textFile = fileReaderClass.ReadATextFile();
+            string[] text = textFile.Split(new char[0]);
+            return text;
+        }
+    }
+}
