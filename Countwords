@@ -1,0 +1,13 @@
+using SingleResponsibility.Controllers;
+
+namespace SingleResponsibility.Tests
+{
+    public class Countwords:ICountWords
+    {
+        public virtual int countTheWords(ISplitANdStoreClass splitAndStoreClass,IFileReaderClass fileReaderClass)
+        {
+            var readEachWordFromString = splitAndStoreClass.ReadEachWordFromString(fileReaderClass);
+            return readEachWordFromString.Length;
+        }
+    }
+}
