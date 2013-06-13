@@ -1,0 +1,27 @@
+using Moq;
+using NUnit.Framework;
+using SingleResponsibility.Controllers;
+
+namespace SingleResponsibility.Tests
+{
+    [TestFixture]
+    public class SplitAndStoreClassTests
+    {
+        private string expected = "my new contentsome other stuff";
+
+
+
+        [Test]
+        public void ShouldSplitTheStringAndStoreInAnArray()
+        {
+            var mock = new Mock<IFileReaderClass>();
+            var splitAndStoreClass = new SplitAndStoreClass();
+            mock.Setup(m => m.ReadATextFile()).Returns(expected);
+
+            splitAndStoreClass.ReadEachWordFromString(mock.Object);
+
+            mock.Verify(m => m.ReadATextFile(),Times.Once());
+            
+        }
+    }
+}
