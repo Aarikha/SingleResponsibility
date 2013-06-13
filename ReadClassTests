@@ -1,0 +1,25 @@
+using Moq;
+using NUnit.Framework;
+
+
+namespace SingleResponsibility.Tests
+{
+    [TestFixture]
+    public class ReadClassTests
+    {
+        string expected = "my new contentsome other stuff";
+
+
+        [Test]
+        public void ShouldReadATextFile()
+        {
+            var mock = new Mock<FileReaderClass>();
+            mock.Setup(m => m.ReadATextFile()).Returns(expected);
+
+
+            var actual = new FileReaderClass();
+            Assert.AreEqual(expected, actual.ReadATextFile());
+
+        }
+    }
+} 
