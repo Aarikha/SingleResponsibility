@@ -1,0 +1,7 @@
+namespace SingleResponsibility.Tests
+{
+    public interface IFileReaderClass
+    {
+        string ReadATextFile();
+    }
+}
