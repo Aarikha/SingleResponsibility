@@ -1,0 +1,9 @@
+using SingleResponsibility.Controllers;
+
+namespace SingleResponsibility.Tests
+{
+    public interface ICountWords
+    {
+        int countTheWords(ISplitANdStoreClass splitANdStoreClass,IFileReaderClass fileReaderClass);
+    }
+}
